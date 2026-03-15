@@ -1,7 +1,7 @@
 # 🤖 AI Security Pipeline
 
 > Private RAG (Retrieval Augmented Generation) pipeline.
-> Feed security books, CVEs, and research papers into your local AI.
+> Feed security books, CVEs, and research papers into my local AI.
 > 100% offline. Zero cloud. Your knowledge stays yours.
 
 ---
@@ -26,14 +26,14 @@ What this does:
 ```
 ┌─────────────────────────────────────────────┐
 │  RAID 5 HDD (28TB)                          │
-│  /mnt/books  ← your PDF/EPUB library        │
+│  /mnt/books  ← my PDF/EPUB library        │
 └──────────────────┬──────────────────────────┘
                    │ read once
                    ▼
 ┌─────────────────────────────────────────────┐
 │  VM1 — Ingestor (192.168.1.11)              │
 │  PyMuPDF → chunk → sentence-transformers    │
-│  Creates embeddings from your books         │
+│  Creates embeddings from my books         │
 └──────────────────┬──────────────────────────┘
                    │ store vectors
                    ▼
@@ -48,7 +48,7 @@ What this does:
 │  VM3 — LLM Brain (192.168.1.13)             │
 │  DeepSeek R1 14B via Ollama                 │
 │  RTX 3060 12GB GPU                          │
-│  Answers using YOUR book context            │
+│  Answers using MY book context            │
 └──────────────────┬──────────────────────────┘
                    │ serve answer
                    ▼
@@ -106,7 +106,7 @@ python3 ingest.py --books-path /mnt/books --qdrant-host 192.168.1.12
 python3 ingest.py --watch --books-path /mnt/books --qdrant-host 192.168.1.12
 ```
 
-### 3. Query Your AI (VM4 or direct)
+### 3. Query My AI (VM4 or direct)
 ```bash
 python3 query.py "What is Kerberoasting and how is it detected?"
 ```
@@ -118,7 +118,7 @@ python3 query.py "What is Kerberoasting and how is it detected?"
 | File | Purpose |
 |---|---|
 | `ingest.py` | PDF → chunks → embeddings → Qdrant |
-| `query.py` | CLI interface to query your AI |
+| `query.py` | CLI interface to query my AI |
 | `api.py` | FastAPI server for programmatic access |
 | `config.py` | All configuration in one place |
 
@@ -128,12 +128,12 @@ python3 query.py "What is Kerberoasting and how is it detected?"
 
 Edit `config.py`:
 ```python
-BOOKS_PATH      = "/mnt/books"          # your RAID mount
+BOOKS_PATH      = "/mnt/books"          # my RAID mount
 QDRANT_HOST     = "192.168.1.12"        # VM2
 QDRANT_PORT     = 6333
 OLLAMA_HOST     = "192.168.1.13"        # VM3
 OLLAMA_PORT     = 11434
-OLLAMA_MODEL    = "deepseek-r1:14b"     # your primary model
+OLLAMA_MODEL    = "deepseek-r1:14b"     # my primary model
 COLLECTION_NAME = "security-library"
 CHUNK_SIZE      = 512                   # tokens per chunk
 CHUNK_OVERLAP   = 64
@@ -165,10 +165,10 @@ Storage estimate:
 ## 🔐 Privacy
 
 ```
-✅ All processing happens on your hardware
-✅ No book content ever leaves your network
+✅ All processing happens on my hardware
+✅ No book content ever leaves my network
 ✅ No API calls to OpenAI/Anthropic/etc
-✅ Qdrant runs locally on your NVMe
+✅ Qdrant runs locally on my NVMe
 ✅ Ollama runs locally with GPU
 ✅ Zero internet required after initial setup
 ```

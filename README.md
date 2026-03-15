@@ -2,7 +2,7 @@
 
 > Private RAG (Retrieval Augmented Generation) pipeline.
 > Feed security books, CVEs, and research papers into my local AI.
-> 100% offline. Zero cloud. Your knowledge stays yours.
+> 100% offline. Zero cloud. My knowledge stays my.
 
 ---
 
@@ -11,11 +11,11 @@
 ```
 What this does:
 
-1. Reads your PDF/EPUB security library (10TB)
+1. Reads my PDF/EPUB security library (10TB)
 2. Chunks text into searchable paragraphs
 3. Creates vector embeddings
 4. Stores in Qdrant (local NVMe)
-5. AI answers questions FROM YOUR BOOKS
+5. AI answers questions FROM MY BOOKS
    not just from its training data
 ```
 

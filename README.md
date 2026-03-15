@@ -298,7 +298,7 @@ VM4 Agent/UI            ⏳
 
 ## 📄 Full Documentation
 
-[📥 Download Complete Build Documentation](./Homelab_AI_RedTeam_Documentation.docx)
+[📥 Download Complete Build Documentation](./Homelab_AI_RedTeam_Documentation mein.docx)
 
 Includes: Hardware specs, GPU passthrough steps, VM setup guides, AI stack configuration, network layout, GitHub setup, knowledge base strategy, and full build checklist.
 
